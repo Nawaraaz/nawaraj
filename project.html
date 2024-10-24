@@ -13,25 +13,35 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Ensures full height */
+            overflow: hidden; /* Prevent scrolling */
         }
 
         .projects-container {
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent */
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
             max-width: 800px;
+            width: 90%; /* Make the container responsive */
             text-align: center;
+            position: relative; /* Position relative for background animation */
+            overflow: auto; /* Allow scrolling if needed */
+            max-height: 90vh; /* Limit height to avoid overflow */
+            margin: 20px; /* Margin for small screens */
         }
 
         .projects-container h1 {
             color: #00ff7f;
             margin-bottom: 20px;
+            animation: fadeIn 1s ease; /* Fade-in animation */
         }
 
         .project {
             margin-bottom: 20px;
+            position: relative; /* For inner elements */
+            overflow: hidden; /* Prevent overflow for animation */
+            animation: slideIn 0.5s ease; /* Slide-in animation */
         }
 
         .project h2 {
@@ -46,9 +56,11 @@
         .project a {
             color: #00ff7f;
             text-decoration: none;
+            transition: color 0.3s; /* Smooth transition for link color */
         }
 
         .project a:hover {
+            color: #00ff00; /* Change color on hover */
             text-decoration: underline;
         }
 
@@ -60,16 +72,79 @@
             border: 1px solid #00ff00;
             padding: 10px 20px;
             border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
         }
 
         a.back-link:hover {
             background-color: #00ff00;
             color: #000;
         }
+
+        /* Background Animation */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.2), rgba(0, 0, 0, 0.8));
+            animation: pulse 5s infinite;
+            z-index: -1; /* Send to back */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .projects-container {
+                padding: 20px; /* Adjust padding for smaller screens */
+                max-height: 90vh; /* Keep height manageable */
+                overflow-y: auto; /* Allow vertical scroll if needed */
+            }
+
+            .project p {
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+
+            a.back-link {
+                padding: 8px 16px; /* Adjust padding for smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="projects-container">
+        <div class="background-animation"></div> <!-- Background animation -->
         <h1>My Projects</h1>
         
         <div class="project">
@@ -79,18 +154,25 @@
         </div>
 
         <div class="project">
-            <h2>2. Graphic Design Portfolio</h2>
-            <p>A personal collection of my graphic design work, including logo designs, digital illustrations, and branding projects. Built with <strong>Adobe Illustrator</strong> and <strong>Photoshop</strong>.</p>
-            <a href="https://www.behance.net/nawaraj-khanal" target="_blank">View on Behance</a>
+            <h2>2. E-Commerce Website</h2>
+            <p>A full-featured e-commerce platform built with <strong>MERN stack</strong> (MongoDB, Express, React, Node.js). Features include product listing, shopping cart, payment integration, and user authentication.</p>
+            <a href="https://github.com/nawaraj-khanal/ecommerce-mern" target="_blank">View on GitHub</a>
         </div>
 
         <div class="project">
-            <h2>3. E-Commerce Website</h2>
-            <p>A full-featured e-commerce platform built with <strong>MERN stack</strong> (MongoDB, Express, React, Node.js). Features include product listing, shopping cart, payment integration, and user authentication.</p>
-            <a href="https://github.com/nawaraj-khanal/ecommerce-mern" target="_blank">View on GitHub</a>
+            <h2>3. Personal Portfolio Website</h2>
+            <p>A responsive portfolio website showcasing my skills and projects. Built using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.</p>
+            <a href="https://github.com/nawaraj-khanal/portfolio" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h2>4. Task Management App</h2>
+            <p>An application to manage tasks efficiently with features like adding, updating, and deleting tasks. Built with <strong>React.js</strong> and <strong>Firebase</strong>.</p>
+            <a href="https://github.com/nawaraj-khanal/task-manager" target="_blank">View on GitHub</a>
         </div>
 
         <a href="index.html" class="back-link">&lt; Back to Terminal</a>
     </div>
 </body>
 </html>
+
