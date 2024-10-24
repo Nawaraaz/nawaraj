@@ -1,0 +1,67 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #1e1e1e;
+    color: #00ff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Terminal container */
+#terminal {
+    width: 80%;
+    max-width: 800px;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+}
+
+/* Terminal output */
+#terminal-output {
+    min-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* Command input area */
+#terminal-input {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+#command-input {
+    background: none;
+    border: none;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    outline: none;
+    flex: 1;
+}
+
+/* Links styled to look like terminal text */
+a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #terminal {
+        width: 95%;
+    }
+}

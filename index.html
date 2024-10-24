@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="terminal">
+        <div id="terminal-output">
+            <!-- Output of the terminal commands will appear here -->
+            <p>Welcome to Nawaraj's Portfolio! Type a command or click a link:</p>
+            <ul>
+                <li><a href="home.html" data-command="home">home</a></li>
+                <li><a href="about.html" data-command="about">about</a></li>
+                <li><a href="project.html" data-command="projects">projects</a></li>
+                <li><a href="social.html" data-command="socials">socials</a></li>
+                <li><a href="other.html" data-command="other">other</a></li>
+            </ul>
+        </div>
+        <div id="terminal-input">
+            <span>&gt;</span> <input type="text" id="command-input" autofocus>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
